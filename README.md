@@ -6,4 +6,5 @@ Week 1 Tasks Completed :
 2. repo created 
 3. readme, script.js, style.css , and index created 
 4. Repo cloned to local pc 1(icstars device)
+5. Adding Xp, Player name and level
 
