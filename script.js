@@ -8,4 +8,7 @@ if (currentXP >= 100) {
     document.getElementById('rank').textContent = 'Analyst';
 }
 document.getElementById('missions').textContent = 1;
+document.getElementById('player-card').classList.add('hidden');
+document.getElementById('mission-card').classList.remove('hidden');
+
 });

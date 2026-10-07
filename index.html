@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="player-card">
+    <div class= "player-card" id="player-card">
         <h1> CYBER// BREACH </h1>
         <h2> Junior Security Officer</h2>
 
@@ -15,6 +15,19 @@
         <p> XP: <span id="xp">0</span></p>
         <p> Missions: <span id="missions">0</span>/5</p>
      <button id="start-btn">Start Mission </button>
+    </div>
+    <div class="mission-card hidden" id="mission-card">
+        <h2>Mission 01: The Bait</h2>
+        <p><strong> FROM</strong> security@micr0soft-support.com </p>
+        <p><strong> SUBJECT</strong> Urgent: Account Suspension </p>
+        <p> Your account will be permanently suspended if the issue is not resolved within 30 minutes. Verify your account immediately.</p>
+
+        <button class="answer-btn" data-answer="A">A. Open the link</button>
+        <button class="answer-btn" data-answer="B">B. Report phishing</button>
+        <button class="answer-btn" data-answer="C">C. Forward to a coworker</button>
+        <button class="answer-btn" data-answer="D">D. Reply to the sender</button>
+
+        <p id="feedback"></p>
     </div>
     <script src="script.js"></script>
 </body>
