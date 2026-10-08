@@ -5,18 +5,146 @@ body {
     display:flex;
     justify-content:center;
     align-items:center;
-    height:100vh;
+    min-height:100vh;
     margin:0;
+    padding: 24px 16px;
+    box-sizing: border-box;
 }
-.player-card{
+
+.screen-container {
+    width: min(100%, 760px);
+}
+
+.character-selection,
+.player-card,
+.mission-card {
     background-color: #161b22;
     border: 2px solid #00ff9d;
     border-radius: 10px;
     padding: 30px;
-    width: 400px;
     text-align: center;
+    box-sizing: border-box;
+}
+
+.character-selection h1 {
+    margin: 0 0 28px;
+}
+
+.character-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.character-option {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 18px;
+    color: inherit;
+    font: inherit;
+    background: #0d1117;
+    border: 2px solid #30363d;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: border-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
+}
+
+.character-option:hover {
+    transform: translateY(-2px);
+}
+
+.character-option:focus-visible,
+.continue-button:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+}
+
+.character-option[data-character="andrew"][aria-pressed="true"] {
+    border-color: #00ff9d;
+    box-shadow: 0 0 16px #00ff9d55;
+}
+
+.character-option[data-character="werdna"][aria-pressed="true"] {
+    border-color: #c084fc;
+    box-shadow: 0 0 16px #c084fc55;
+}
+
+.stick-figure {
+    width: 100px;
+    height: 150px;
+    overflow: visible;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 5;
+}
+
+.andrew-figure {
+    color: #00ff9d;
+}
+
+.werdna-figure {
+    color: #c084fc;
+}
+
+.figure-detail {
+    stroke-width: 4;
+}
+
+.character-name {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.continue-button {
+    margin-top: 24px;
+    padding: 12px 24px;
+    color: #0d1117;
+    font: inherit;
+    font-weight: bold;
+    background: #00ff9d;
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.continue-button:disabled {
+    color: #8b949e;
+    background: #30363d;
+    cursor: not-allowed;
+}
+
+.player-card,
+.mission-card {
+    width: 100%;
 }
 
 .hidden {
     display: none;
+}
+
+@media (max-width: 480px) {
+    .character-selection,
+    .player-card,
+    .mission-card {
+        padding: 22px 16px;
+    }
+
+    .character-options {
+        gap: 12px;
+    }
+
+    .character-option {
+        padding: 14px 8px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .character-option {
+        transition: none;
+    }
 }

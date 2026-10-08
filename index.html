@@ -7,9 +7,32 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class= "player-card" id="player-card">
+    <main class="screen-container">
+    <section class="character-selection" id="character-selection" aria-labelledby="character-selection-heading">
+        <h1 id="character-selection-heading">Select Character</h1>
+        <div class="character-options" role="group" aria-label="Choose your character">
+            <button class="character-option" type="button" data-character="andrew" aria-pressed="false">
+                <svg class="stick-figure andrew-figure" viewBox="0 0 100 150" aria-hidden="true">
+                    <circle cx="50" cy="22" r="15"></circle>
+                    <path d="M50 37v48M50 50 23 72M50 50l27 22M50 85 29 125M50 85l21 40"></path>
+                </svg>
+                <span class="character-name">Andrew</span>
+            </button>
+            <button class="character-option" type="button" data-character="werdna" aria-pressed="false">
+                <svg class="stick-figure werdna-figure" viewBox="0 0 100 150" aria-hidden="true">
+                    <circle cx="50" cy="22" r="15"></circle>
+                    <path d="M50 37v48M50 50 23 72M50 50l27 22M50 85 29 125M50 85l21 40"></path>
+                    <path class="figure-detail" d="M37 19q13-13 26 0"></path>
+                </svg>
+                <span class="character-name">Werdna</span>
+            </button>
+        </div>
+        <button class="continue-button" id="continue-btn" type="button" disabled>Continue</button>
+    </section>
+
+    <div class="player-card hidden" id="player-card">
         <h1> CYBER// BREACH </h1>
-        <h2> Junior Security Officer</h2>
+        <h2> Junior Security Officer: <span id="character-name">—</span></h2>
 
         <p>Rank: <span id="rank"> Rookie</span></p>
         <p> XP: <span id="xp">0</span></p>
@@ -21,6 +44,7 @@
         <p><strong> FROM</strong> security@micr0soft-support.com </p>
         <p><strong> SUBJECT</strong> Urgent: Account Suspension </p>
         <p> Your account will be permanently suspended if the issue is not resolved within 30 minutes. Verify your account immediately.</p>
+        <p id="feedback"></p>
 
         <button class="answer-btn" data-answer="A">A. Open the link</button>
         <button class="answer-btn" data-answer="B">B. Report phishing</button>
@@ -29,6 +53,7 @@
 
         <p id="feedback"></p>
     </div>
+    </main>
     <script src="script.js"></script>
 </body>
 </html>
