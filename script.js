@@ -62,6 +62,9 @@ const answerButtons =document.querySelectorAll('.answer-btn');
         const chosenAnswer = button.dataset.answer;
          if (chosenAnswer === correctAnswer) {
             document.getElementById('feedback').textContent = 'Correct answer! Great catch!';
+            const xpSpan=document.getElementById('xp');
+            const currentXP=parseInt(xpSpan.textContent);
+            xpSpan.textContent = currentXP + 50;
         } else {
             document.getElementById('feedback').textContent = 'Incorrect answer. Please try again.';
         }console.log('You Picked:', chosenAnswer);
