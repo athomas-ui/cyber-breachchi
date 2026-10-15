@@ -68,5 +68,8 @@ const answerButtons =document.querySelectorAll('.answer-btn');
         } else {
             document.getElementById('feedback').textContent = 'Incorrect answer. Please try again.';
         }console.log('You Picked:', chosenAnswer);
+        answerButtons.forEach(function(btn) {
+            btn.disabled = true;
         });
     });
+});
