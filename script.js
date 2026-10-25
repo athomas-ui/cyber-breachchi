@@ -44,32 +44,37 @@ updateCharacterSelection();
 const startButton = document.getElementById('start-btn');
 
 startButton.addEventListener('click', function() {
-    document.getElementById('xp').textContent = 100;
-console.log('Mission started!');
-const currentXP = 100;
-if (currentXP >= 100) {
-    document.getElementById('rank').textContent = 'Analyst';
-}
-document.getElementById('missions').textContent = 1;
-playerCard.classList.add('hidden');
-document.getElementById('mission-card').classList.remove('hidden');
+    console.log('Mission started!');
+    playerCard.classList.add('hidden');
+    document.getElementById('mission-card').classList.remove('hidden');
 });
 const correctAnswer = 'B';
 const answerButtons =document.querySelectorAll('.answer-btn');
-
+function updateRank(xp) {
+    if (xp >= 100) {
+        document.getElementById('rank').textContent = 'Analyst';
+    } else {
+        document.getElementById('rank').textContent = 'Rookie';
+    }
+}
     answerButtons.forEach(function(button) {
-    button.addEventListener('click', function() {
-        const chosenAnswer = button.dataset.answer;
-         if (chosenAnswer === correctAnswer) {
-            document.getElementById('feedback').textContent = 'Correct answer! Great catch!';
-            const xpSpan=document.getElementById('xp');
-            const currentXP=parseInt(xpSpan.textContent);
-            xpSpan.textContent = currentXP + 50;
-        } else {
-            document.getElementById('feedback').textContent = 'Incorrect answer. Please try again.';
-        }console.log('You Picked:', chosenAnswer);
-        answerButtons.forEach(function(btn) {
-            btn.disabled = true;
-        });
-    });
-});
+   button.addEventListener('click', function() {
+    const chosenAnswer = button.dataset.answer;
+    if (chosenAnswer === correctAnswer) {
+        document.getElementById('feedback').textContent = 'Correct answer! Great catch!';
+        const xpSpan = document.getElementById('xp');
+        const currentXP = parseInt(xpSpan.textContent);
+        const newXP = currentXP + 50;
+        xpSpan.textContent = newXP;
+        updateRank(newXP);
+    } else {
+        document.getElementById('feedback').textContent = 'Incorrect answer. Please try again.';
+    }
+    console.log('You Picked:', chosenAnswer);
+    const missionsSpan = document.getElementById('missions');
+    const currentMissions = parseInt(missionsSpan.textContent);
+    missionsSpan.textContent = currentMissions + 1;
+
+    answerButtons.forEach(function(btn) {
+        btn.disabled = true;});
+    });});
